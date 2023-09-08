@@ -1,5 +1,12 @@
 package com.example.dummyapicall
 
-data class ProductResponse(
-    val products: List<Product>
-)
+import java.io.Serializable
+
+//data class ProductResponse(
+//    val products: List<Product>
+//)
+
+
+data class SubjectResponse(
+    val record: Subject,
+) : Serializable
