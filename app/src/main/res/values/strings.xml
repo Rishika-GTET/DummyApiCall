@@ -3,6 +3,16 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="large_text">
+          <string name="app_name">SpinnerInKotlin</string>
+    <string name="selected_item">Selected item:</string>
+
+   <string-array name="subject_array">
+       <item>Mathematics</item>
+       <item>Physics</item>
+       <item>Chemistry</item>
+       <!-- Add more subjects as needed -->
+   </string-array>
+
         "Material is the metaphor.\n\n"
 
         "A material metaphor is the unifying theory of a rationalized space and a system of motion."
