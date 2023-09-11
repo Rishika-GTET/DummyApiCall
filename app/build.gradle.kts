@@ -54,5 +54,7 @@ dependencies {
     implementation("androidx.recyclerview:recyclerview:1.3.1")
     implementation("com.github.bumptech.glide:glide:4.16.0")
     annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
+    implementation ("com.google.android.material:material:1.4.0")
+    implementation ("androidx.viewpager:viewpager:1.0.0")
 
 }
