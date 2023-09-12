@@ -7,10 +7,14 @@ import com.example.dummyapicall.Chapter
 import com.example.dummyapicall.databinding.ItemChapterBinding
 import com.example.dummyapicall.loadUrl
 
-class ChapterAdapter(private val chapters: List<Chapter>,
-                     private var onItemClicked: ((chapter: Chapter) -> Unit)
+
+class ChapterAdapter(
+    chapters: List<Chapter>,
+    private var onItemClicked: ((chapter: Chapter) -> Unit)
 ) :
     RecyclerView.Adapter<ChapterAdapter.ViewHolder>() {
+    var allChapters = chapters
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemChapterBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -18,21 +22,27 @@ class ChapterAdapter(private val chapters: List<Chapter>,
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val chapter = chapters[position]
+        val chapter = allChapters[position]
         holder.bind(chapter)
     }
 
-    override fun getItemCount(): Int {
-        return chapters.size
+    fun updateList(list: List<Chapter>) {
+        allChapters = list
+        notifyDataSetChanged()
     }
 
-    inner class ViewHolder(private val binding: ItemChapterBinding) : RecyclerView.ViewHolder(binding.root) {
+    override fun getItemCount(): Int {
+        return allChapters.size
+    }
+
+    inner class ViewHolder(private val binding: ItemChapterBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         init {
             itemView.setOnClickListener {
                 val position = adapterPosition
                 if (position != RecyclerView.NO_POSITION) {
-                    onItemClicked(chapters[layoutPosition])
+                    onItemClicked(allChapters[layoutPosition])
                 }
             }
         }

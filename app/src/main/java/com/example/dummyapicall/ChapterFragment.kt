@@ -8,44 +8,39 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.dummyapicall.Retrofit.retrofitService
 import com.example.dummyapicall.databinding.FragmentChapterBinding
+import com.example.dummyapicall.databinding.LayoutBottomSheetDialogBinding
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class ChapterFragment : Fragment() {
-    private lateinit var binding:FragmentChapterBinding
+    private lateinit var binding: FragmentChapterBinding
+    private lateinit var dialogBinding: LayoutBottomSheetDialogBinding
     lateinit var adapter: ChapterAdapter
-    private val baseUrl = "https://api.jsonbin.io/v3/b/"
+    private var subjects: List<Record>? = emptyList()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding=DataBindingUtil.inflate(inflater,R.layout.fragment_chapter,container,false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_chapter, container, false)
         return binding.root
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
-
-        // Initialize Retrofit for subject data
-        val retrofit = Retrofit.Builder()
-            .baseUrl(baseUrl)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-//
-//        // Create an instance of the SubjectApiService interface
-        val apiService = retrofit.create(ApiService::class.java)
-
+        binding.chapterSelectionButton.setOnClickListener {
+            openBottomSheetDialog()
+        }
+        getSubjectList()
         // Fetch subjects from the API
-        val call = apiService.getSubject()
+        val call = retrofitService.getSubjectDetails()
         call.enqueue(object : Callback<SubjectResponse> {
             override fun onResponse(
                 call: Call<SubjectResponse>,
@@ -58,7 +53,7 @@ class ChapterFragment : Fragment() {
                     println("Chapters $chapters")
 
                     // Pass the subjects and chapters to the adapter
-                    adapter = ChapterAdapter(chapters){
+                    adapter = ChapterAdapter(chapters) {
                         findNavController().navigate(ChapterFragmentDirections.actionChapterFragmentToVideoFragment())
                     }
                     binding.recyclerView.adapter = adapter
@@ -67,10 +62,44 @@ class ChapterFragment : Fragment() {
                 }
             }
 
-            override fun onFailure(call: Call<SubjectResponse>, t:Throwable) {
+            override fun onFailure(call: Call<SubjectResponse>, t: Throwable) {
                 t.printStackTrace()
             }
         })
+    }
+
+    private fun getSubjectList() {
+        val call = retrofitService.getSubjectList()
+        call.enqueue(object : Callback<SubjectListResponse?> {
+            override fun onResponse(
+                call: Call<SubjectListResponse?>,
+                response: Response<SubjectListResponse?>
+            ) {
+                if (response.isSuccessful) {
+                    subjects = response.body()?.record
+                    binding.chapterTextView.text = subjects?.getOrNull(0)?.subjectName
+                    binding.chapterImageView.loadUrl(subjects?.getOrNull(0)?.subjectImage!!)
+                }
+            }
+
+            override fun onFailure(call: Call<SubjectListResponse?>, t: Throwable) {
+                t.printStackTrace()
+            }
+        })
+    }
+
+    private fun openBottomSheetDialog() {
+        dialogBinding = LayoutBottomSheetDialogBinding.inflate(layoutInflater)
+        val dialog = BottomSheetDialog(requireContext())
+        dialog.setContentView(dialogBinding.root)
+        dialogBinding.recyclerViewSubject.adapter =
+            SubjectAdapter(subjects = subjects!!) { selectedSubject ->
+                binding.chapterTextView.text = selectedSubject.subjectName
+                binding.chapterImageView.loadUrl(selectedSubject.subjectImage)
+                dialog.cancel()
+
+            }
+        dialog.show()
     }
 
 
