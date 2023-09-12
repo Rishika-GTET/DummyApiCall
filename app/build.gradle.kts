@@ -1,17 +1,18 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("androidx.navigation.safeargs.kotlin")
 
 }
 
 android {
     namespace = "com.example.dummyapicall"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.dummyapicall"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -56,5 +57,11 @@ dependencies {
     annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
     implementation ("com.google.android.material:material:1.4.0")
     implementation ("androidx.viewpager:viewpager:1.0.0")
+    implementation("io.coil-kt:coil:1.2.0")
+    implementation("io.coil-kt:coil-svg:1.2.0")
+
+    // For navigation
+    implementation ("androidx.navigation:navigation-fragment-ktx:2.7.2")
+    implementation ("androidx.navigation:navigation-ui-ktx:2.7.2")
 
 }

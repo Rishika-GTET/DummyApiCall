@@ -8,8 +8,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.dummyapicall.Subject
-import com.example.dummyapicall.R
 
 class SubjectDetailAdapter(private val context: Context, private val subjects: List<Subject>) :
     RecyclerView.Adapter<SubjectDetailAdapter.ViewHolder>() {

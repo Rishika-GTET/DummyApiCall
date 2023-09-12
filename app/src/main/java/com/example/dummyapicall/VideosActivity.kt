@@ -14,7 +14,6 @@ class VideosActivity : AppCompatActivity() {
 
     lateinit var recyclerView: RecyclerView
     lateinit var videoAdapter: VideoAdapter
-    lateinit var videoList: ArrayList<VideoItem>
     private val baseUrl = "https://api.jsonbin.io/v3/b/"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -87,13 +86,13 @@ class VideosActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val videoResponse = response.body()
                     val videos = videoResponse?.record ?: emptyList()
-                    println("Videos ${videos.toString()}")
+                    println("Videos $videos")
                     // Pass the subjects and chapters to the adapter
                     videoAdapter = VideoAdapter(videos)
                     recyclerView.adapter = videoAdapter
                 } else {
                     // Handle the error
-                    println("Error while calling API ${response.toString()}")
+                    println("Error while calling API $response")
                 }
             }
 
