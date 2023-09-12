@@ -42,7 +42,7 @@ class ChapterFragment : Fragment() {
             .build()
 //
 //        // Create an instance of the SubjectApiService interface
-        val apiService = retrofit.create(SubjectApiService::class.java)
+        val apiService = retrofit.create(ApiService::class.java)
 
         // Fetch subjects from the API
         val call = apiService.getSubject()
