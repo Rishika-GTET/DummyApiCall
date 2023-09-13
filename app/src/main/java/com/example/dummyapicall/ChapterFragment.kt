@@ -40,7 +40,31 @@ class ChapterFragment : Fragment() {
         }
         getSubjectList()
         // Fetch subjects from the API
-        val call = retrofitService.getSubjectDetails()
+        getMathematicsChaptersList()
+    }
+
+    private fun getSubjectList() {
+        val call = retrofitService.getSubjectList()
+        call.enqueue(object : Callback<SubjectListResponse?> {
+            override fun onResponse(
+                call: Call<SubjectListResponse?>,
+                response: Response<SubjectListResponse?>
+            ) {
+                if (response.isSuccessful) {
+                    subjects = response.body()?.record
+                    binding.chapterTextView.text = subjects?.getOrNull(0)?.subjectName
+                    binding.chapterImageView.loadUrl(subjects?.getOrNull(0)?.subjectImage!!)
+                }
+            }
+
+            override fun onFailure(call: Call<SubjectListResponse?>, t: Throwable) {
+                t.printStackTrace()
+            }
+        })
+    }
+
+    private fun getMathematicsChaptersList(){
+        val call = retrofitService.getMathematicsSubjectDetails()
         call.enqueue(object : Callback<SubjectResponse> {
             override fun onResponse(
                 call: Call<SubjectResponse>,
@@ -68,21 +92,59 @@ class ChapterFragment : Fragment() {
         })
     }
 
-    private fun getSubjectList() {
-        val call = retrofitService.getSubjectList()
-        call.enqueue(object : Callback<SubjectListResponse?> {
+    private fun getPhysicsChaptersList(){
+        val call = retrofitService.getPhysicsSubjectDetails()
+        call.enqueue(object : Callback<SubjectResponse> {
             override fun onResponse(
-                call: Call<SubjectListResponse?>,
-                response: Response<SubjectListResponse?>
+                call: Call<SubjectResponse>,
+                response: Response<SubjectResponse>
             ) {
                 if (response.isSuccessful) {
-                    subjects = response.body()?.record
-                    binding.chapterTextView.text = subjects?.getOrNull(0)?.subjectName
-                    binding.chapterImageView.loadUrl(subjects?.getOrNull(0)?.subjectImage!!)
+                    val subjectResponse = response.body()
+                    val subject = subjectResponse?.record
+                    val chapters = subject?.chapters ?: emptyList()
+                    println("Chapters $chapters")
+
+                    // Pass the subjects and chapters to the adapter
+                    adapter = ChapterAdapter(chapters) {
+                        findNavController().navigate(ChapterFragmentDirections.actionChapterFragmentToVideoFragment())
+                    }
+                    binding.recyclerView.adapter = adapter
+                } else {
+                    // Handle the error
                 }
             }
 
-            override fun onFailure(call: Call<SubjectListResponse?>, t: Throwable) {
+            override fun onFailure(call: Call<SubjectResponse>, t: Throwable) {
+                t.printStackTrace()
+            }
+        })
+    }
+
+    private fun getChemistryChaptersList(){
+        val call = retrofitService.getChemistrySubjectDetails()
+        call.enqueue(object : Callback<SubjectResponse> {
+            override fun onResponse(
+                call: Call<SubjectResponse>,
+                response: Response<SubjectResponse>
+            ) {
+                if (response.isSuccessful) {
+                    val subjectResponse = response.body()
+                    val subject = subjectResponse?.record
+                    val chapters = subject?.chapters ?: emptyList()
+                    println("Chapters $chapters")
+
+                    // Pass the subjects and chapters to the adapter
+                    adapter = ChapterAdapter(chapters) {
+                        findNavController().navigate(ChapterFragmentDirections.actionChapterFragmentToVideoFragment())
+                    }
+                    binding.recyclerView.adapter = adapter
+                } else {
+                    // Handle the error
+                }
+            }
+
+            override fun onFailure(call: Call<SubjectResponse>, t: Throwable) {
                 t.printStackTrace()
             }
         })
@@ -96,8 +158,14 @@ class ChapterFragment : Fragment() {
             SubjectAdapter(subjects = subjects!!) { selectedSubject ->
                 binding.chapterTextView.text = selectedSubject.subjectName
                 binding.chapterImageView.loadUrl(selectedSubject.subjectImage)
+                if(selectedSubject.subjectName == "Physics"){
+                    getPhysicsChaptersList()
+                }else if(selectedSubject.subjectName == "Chemistry"){
+                    getChemistryChaptersList()
+                }else{
+                    getMathematicsChaptersList()
+                }
                 dialog.cancel()
-
             }
         dialog.show()
     }

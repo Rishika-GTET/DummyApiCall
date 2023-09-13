@@ -9,7 +9,15 @@ interface ApiService {
     fun getVideos(): Call<VideoResponse>
 
     @GET("64fac54ae4033326cbd3d7e3")
-    fun getSubjectDetails(): Call<SubjectResponse>
+    fun getMathematicsSubjectDetails(): Call<SubjectResponse>
+
+
+    @GET("64fac570d972192679c010bd")
+    fun getPhysicsSubjectDetails(): Call<SubjectResponse>
+
+    @GET("64fac58be4033326cbd3d7f4")
+    fun getChemistrySubjectDetails(): Call<SubjectResponse>
+
 
     @GET("64fac25ee4033326cbd3d6d2")
     fun getSubjectList(): Call<SubjectListResponse>
