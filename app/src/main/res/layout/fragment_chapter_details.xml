@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--    <androidx.coordinatorlayout.widget.CoordinatorLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:background="@drawable/background"-->
+    <!--        android:fitsSystemWindows="true">-->
+
+    <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_marginHorizontal="16dp"-->
+    <!--            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"-->
+    <!--            android:layout_height="match_parent">-->
+
+    <!--            <com.google.android.material.appbar.AppBarLayout-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:id="@+id/appBarLayout"-->
+    <!--                android:background="@android:color/transparent"-->
+    <!--                app:layout_constraintTop_toTopOf="parent"-->
+    <!--                android:layout_height="match_parent">-->
+
+    <!--                <com.google.android.material.appbar.CollapsingToolbarLayout-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    app:contentScrim="@android:color/transparent"-->
+    <!--                    app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"-->
+    <!--                    app:title="@string/app_name">-->
+
+    <!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="wrap_content">-->
+    <!--                    <ImageView-->
+    <!--                        android:id="@+id/backArrow"-->
+    <!--                        android:layout_width="wrap_content"-->
+    <!--                        android:layout_height="wrap_content"-->
+    <!--                        android:src="@drawable/baseline_arrow_back_24"-->
+    <!--                        app:layout_constraintStart_toStartOf="parent"-->
+    <!--                        app:layout_constraintBottom_toBottomOf="@id/chapter_heading"-->
+    <!--                        app:layout_constraintTop_toTopOf="@id/chapter_heading"/>-->
+
+    <!--                    <TextView-->
+    <!--                        android:id="@+id/chapter_heading"-->
+    <!--                        android:layout_width="0dp"-->
+    <!--                        android:layout_height="wrap_content"-->
+    <!--                        android:layout_marginHorizontal="16dp"-->
+    <!--                        android:text="understanding social studies "-->
+    <!--                        android:textStyle="bold"-->
+    <!--                        android:textSize="24sp"-->
+    <!--                        app:layout_constraintEnd_toStartOf="@id/chapterTopicLogo"-->
+    <!--                        app:layout_constraintStart_toEndOf="@id/backArrow"-->
+    <!--                        app:layout_constraintTop_toTopOf="parent" />-->
+    <!--                    <ImageView-->
+    <!--                        android:id="@+id/chapterTopicLogo"-->
+    <!--                        android:layout_width="60dp"-->
+    <!--                        android:layout_height="80dp"-->
+    <!--                        app:layout_constraintStart_toEndOf="@id/chapter_heading"-->
+    <!--                        app:layout_constraintTop_toTopOf="parent"-->
+    <!--                        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--                        app:layout_constraintTop_toBottomOf="parent"-->
+    <!--                        android:src="@drawable/baseline_approval_24"-->
+    <!--                        />-->
+
+    <!--                    <com.google.android.material.card.MaterialCardView-->
+    <!--                        android:layout_width="match_parent"-->
+    <!--                        android:layout_height="wrap_content"-->
+    <!--                        android:layout_margin="10dp"-->
+    <!--                        app:layout_constraintTop_toBottomOf="@id/chapter_heading"-->
+    <!--                        app:strokeWidth="2dp"-->
+    <!--                        app:strokeColor="?attr/colorAccent"-->
+    <!--                        app:cardCornerRadius="20dp">-->
+
+
+    <!--                        <com.google.android.material.tabs.TabLayout-->
+    <!--                            android:id="@+id/tabLayout"-->
+    <!--                            android:layout_width="match_parent"-->
+    <!--                            android:layout_height="wrap_content"-->
+    <!--                            app:tabMode="fixed"-->
+    <!--                            app:tabIndicatorColor="@color/black"-->
+    <!--                            app:tabInlineLabel="true">-->
+
+    <!--                            <com.google.android.material.tabs.TabItem-->
+    <!--                                android:id="@+id/tab_item1"-->
+    <!--                                android:layout_width="wrap_content"-->
+    <!--                                android:layout_height="wrap_content"-->
+    <!--                                android:text="videos" />-->
+
+    <!--                            <com.google.android.material.tabs.TabItem-->
+    <!--                                android:id="@+id/tab_item2"-->
+    <!--                                android:layout_width="wrap_content"-->
+    <!--                                android:layout_height="wrap_content"-->
+    <!--                                android:text="practice" />-->
+
+
+    <!--                        </com.google.android.material.tabs.TabLayout>-->
+
+    <!--                    </com.google.android.material.card.MaterialCardView>-->
+
+    <!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
+    <!--                </com.google.android.material.appbar.CollapsingToolbarLayout>-->
+
+    <!--            </com.google.android.material.appbar.AppBarLayout>-->
+    <!--            <androidx.viewpager2.widget.ViewPager2-->
+    <!--                android:id="@+id/viewpager"-->
+    <!--                app:layout_anchorGravity="bottom"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:background="@color/black"-->
+    <!--                app:layout_constraintTop_toBottomOf="@id/appBarLayout"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                />-->
+
+    <!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+    <!--    </androidx.coordinatorlayout.widget.CoordinatorLayout>-->
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background"
+        android:layout_gravity="top"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            app:layout_scrollFlags="scroll|enterAlways|snap">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_collapseMode="parallax"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:titleEnabled="false">
+
+
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="48dp"
+                    app:layout_collapseMode="parallax" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/backArrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/baseline_arrow_back_24"
+                        app:layout_constraintBottom_toBottomOf="@id/chapter_heading"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/chapter_heading" />
+
+                    <TextView
+                        android:id="@+id/chapter_heading"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="16dp"
+                        android:text="understanding social studies "
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toStartOf="@id/chapterTopicLogo"
+                        app:layout_constraintStart_toEndOf="@id/backArrow"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/chapterTopicLogo"
+                        android:layout_width="60dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/baseline_approval_24"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/chapter_heading"
+                        app:layout_constraintTop_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        app:cardCornerRadius="20dp"
+                        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                        app:layout_collapseMode="parallax"
+                        app:layout_constraintTop_toBottomOf="@id/chapter_heading"
+                        app:strokeWidth="2dp">
+
+
+                        <com.google.android.material.tabs.TabLayout
+                            android:id="@+id/tabLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:tabIndicatorColor="@color/black"
+                            app:tabInlineLabel="true"
+                            app:tabMode="fixed">
+
+                            <com.google.android.material.tabs.TabItem
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="videos" />
+
+                            <com.google.android.material.tabs.TabItem
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="practice" />
+
+
+                        </com.google.android.material.tabs.TabLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

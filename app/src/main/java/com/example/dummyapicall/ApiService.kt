@@ -21,4 +21,7 @@ interface ApiService {
 
     @GET("64fac25ee4033326cbd3d6d2")
     fun getSubjectList(): Call<SubjectListResponse>
+
+    @GET("64fac25ee4033326cbd3d6d2")
+    fun getPracticeList(): Call<PracticeListItem>
 }

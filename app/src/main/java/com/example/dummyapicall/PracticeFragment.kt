@@ -15,7 +15,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ChapterFragment : Fragment() {
+class PracticeFragmentFragment : Fragment() {
     private lateinit var binding: FragmentChapterBinding
     private lateinit var dialogBinding: LayoutBottomSheetDialogBinding
     lateinit var adapter: ChapterAdapter
@@ -37,6 +37,8 @@ class ChapterFragment : Fragment() {
         binding.chapterSelectionButton.setOnClickListener {
             openBottomSheetDialog()
         }
+
+
         getSubjectList()
         // Fetch subjects from the API
         getMathematicsChaptersList()
