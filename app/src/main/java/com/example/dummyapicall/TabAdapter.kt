@@ -15,7 +15,7 @@ class TabAdapter(fragment: Fragment, private var totalTabs: Int) : FragmentState
             }
 
             1 -> {
-                ChapterVideosFragment()
+                ChapterPracticeFragment()
             }
             else -> ChapterVideosFragment()
         }

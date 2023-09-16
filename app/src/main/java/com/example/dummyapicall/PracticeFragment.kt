@@ -137,7 +137,7 @@ class PracticeFragmentFragment : Fragment() {
 
                     // Pass the subjects and chapters to the adapter
                     adapter = ChapterAdapter(chapters) {
-                        findNavController().navigate(ChapterFragmentDirections.actionChapterFragmentToChapterDetailsFragment())
+                        findNavController().navigate(ChapterFragmentDirections.actionChapterFragmentToChapterDetailsFragment(it.chapter_name))
                     }
                     binding.recyclerView.adapter = adapter
                 } else {
@@ -159,12 +159,16 @@ class PracticeFragmentFragment : Fragment() {
             SubjectAdapter(subjects = subjects!!) { selectedSubject ->
                 binding.chapterTextView.text = selectedSubject.subjectName
                 binding.chapterImageView.loadUrl(selectedSubject.subjectImage)
-                if(selectedSubject.subjectName == "Physics"){
-                    getPhysicsChaptersList()
-                }else if(selectedSubject.subjectName == "Chemistry"){
-                    getChemistryChaptersList()
-                }else{
-                    getMathematicsChaptersList()
+                when (selectedSubject.subjectName) {
+                    "Physics" -> {
+                        getPhysicsChaptersList()
+                    }
+                    "Chemistry" -> {
+                        getChemistryChaptersList()
+                    }
+                    else -> {
+                        getMathematicsChaptersList()
+                    }
                 }
                 dialog.cancel()
             }

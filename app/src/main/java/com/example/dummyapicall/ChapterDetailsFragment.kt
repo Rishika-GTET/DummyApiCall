@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.dummyapicall.databinding.FragmentChapterDetailsBinding
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -17,6 +18,8 @@ import retrofit2.Response
 
 class ChapterDetailsFragment:Fragment() {
     private lateinit var binding: FragmentChapterDetailsBinding
+
+    private val args: ChapterDetailsFragmentArgs by navArgs()
 
 
     override fun onCreateView(
@@ -30,6 +33,7 @@ class ChapterDetailsFragment:Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.chapterHeading.text=args.title
         binding.backArrow.setOnClickListener {
             findNavController().popBackStack()
         }

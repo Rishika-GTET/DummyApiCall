@@ -20,6 +20,13 @@
         android:id="@+id/chapterDetailsFragment"
         tools:layout="@layout/fragment_chapter_details"
         android:name="com.example.dummyapicall.ChapterDetailsFragment"
-        android:label="ChapterDetailsFragment" />
+        android:label="ChapterDetailsFragment">
+
+        <argument
+            android:name="title"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue='""' />
+    </fragment>
 
 </navigation>
