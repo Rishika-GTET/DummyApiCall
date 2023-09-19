@@ -41,11 +41,11 @@
             android:layout_marginStart="16dp"
             android:backgroundTint="@color/black"
             android:contentDescription="chapter selection icon"
-            android:src="@android:drawable/arrow_down_float"
+            android:src="@drawable/arrow_down_24_px"
             app:layout_constraintBottom_toBottomOf="@id/chapterTextView"
             app:layout_constraintStart_toEndOf="@id/chapterTextView"
             app:layout_constraintTop_toTopOf="@id/chapterTextView"
-            tools:src="@android:drawable/arrow_down_float" />
+            tools:src="@drawable/arrow_down_24_px" />
 
 
         <androidx.recyclerview.widget.RecyclerView

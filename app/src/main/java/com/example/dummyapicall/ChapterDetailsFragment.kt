@@ -83,10 +83,12 @@ class ChapterDetailsFragment:Fragment() {
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
             when (position) {
                 0 -> {
+                    tab.setIcon(R.drawable.tab_icon1)
                     tab.text = "Videos"
                 }
                 1 -> {
                     tab.text = "Practice"
+                    tab.setIcon(R.drawable.tab_icon2)
                 }
             }
         }.attach()

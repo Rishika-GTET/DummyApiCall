@@ -78,28 +78,27 @@
                         app:cardCornerRadius="20dp"
                         app:layout_behavior="@string/appbar_scrolling_view_behavior"
                         app:layout_scrollFlags="scroll|exitUntilCollapsed"
-                        app:layout_constraintTop_toBottomOf="@id/chapter_heading"
-                        app:strokeWidth="2dp">
+                        app:layout_constraintTop_toBottomOf="@id/chapter_heading">
 
 
                         <com.google.android.material.tabs.TabLayout
                             android:id="@+id/tabLayout"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            app:tabIndicatorColor="@color/black"
                             app:tabInlineLabel="true"
+                            app:tabBackground="@drawable/tab_indicator"
+                            app:tabGravity="fill"
                             app:tabMode="fixed">
 
                             <com.google.android.material.tabs.TabItem
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="videos" />
+                                android:text="videos"/>
 
                             <com.google.android.material.tabs.TabItem
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="practice" />
-
 
                         </com.google.android.material.tabs.TabLayout>
 
