@@ -79,7 +79,7 @@ class PracticeFragmentFragment : Fragment() {
 
                     // Pass the subjects and chapters to the adapter
                     adapter = ChapterAdapter(chapters) {
-                        findNavController().navigate(ChapterFragmentDirections.actionChapterFragmentToChapterDetailsFragment())
+                        findNavController().navigate(ChapterFragmentDirections.actionChapterFragmentToChapterDetailsFragment(it.chapter_name))
                     }
                     binding.recyclerView.adapter = adapter
                 } else {
@@ -108,7 +108,7 @@ class PracticeFragmentFragment : Fragment() {
 
                     // Pass the subjects and chapters to the adapter
                     adapter = ChapterAdapter(chapters) {
-                        findNavController().navigate(ChapterFragmentDirections.actionChapterFragmentToChapterDetailsFragment())
+                        findNavController().navigate(ChapterFragmentDirections.actionChapterFragmentToChapterDetailsFragment(it.chapter_name))
                     }
                     binding.recyclerView.adapter = adapter
                 } else {

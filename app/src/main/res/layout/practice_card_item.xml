@@ -4,8 +4,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:cardCornerRadius="8dp"
+    android:layout_height="120dp"
+    app:cardCornerRadius="16dp"
     app:contentPadding="16dp"
     android:layout_margin="8dp"
     app:cardElevation="4dp">
@@ -68,12 +68,15 @@
         <!-- Start Button -->
         <Button
             android:id="@+id/startButton"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="Start"
+            android:textColor="@color/black"
+            android:outlineSpotShadowColor="@color/material_on_primary_disabled"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginEnd="16dp" />
+            android:layout_marginEnd="16dp"
+            style="?attr/materialButtonOutlinedStyle"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

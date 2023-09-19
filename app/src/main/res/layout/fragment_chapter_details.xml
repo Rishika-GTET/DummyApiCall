@@ -43,6 +43,7 @@
                         android:fitsSystemWindows="true"
                         android:src="@drawable/baseline_arrow_back_24"
                         app:layout_collapseMode="pin"
+                        app:layout_scrollFlags="scroll|exitUntilCollapsed"
                         app:layout_constraintBottom_toBottomOf="@id/chapter_heading"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="@id/chapter_heading" />
@@ -53,6 +54,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="16dp"
                         android:textSize="24sp"
+                        app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                        android:text="understanding our criminal justice system"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toStartOf="@id/chapterTopicLogo"
                         app:layout_constraintStart_toEndOf="@id/backArrow"
@@ -62,6 +65,7 @@
                         android:id="@+id/chapterTopicLogo"
                         android:layout_width="60dp"
                         android:layout_height="80dp"
+                        app:layout_scrollFlags="scroll|enterAlwaysCollapsed"
                         android:src="@drawable/baseline_approval_24"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@id/chapter_heading"
@@ -110,6 +114,8 @@
             android:id="@+id/view_pager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            app:layout_anchor="@+id/view_pager"
+            app:layout_anchorGravity="center"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

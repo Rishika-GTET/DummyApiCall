@@ -27,7 +27,7 @@ class PracticeAdapter(private val practiceList: List<PracticeLevelModel>,
         binding.progressBar.progress = practiceItem.progressPercent
         binding.progressTextView.text = practiceItem.progressPercent.toString()
         binding.titleTextView.text = practiceItem.title
-        binding.subtitleTextView.text = "${practiceItem.completedQuestions}/${practiceItem.totalQuestions}"
+        binding.subtitleTextView.text = "${practiceItem.completedQuestions}/${practiceItem.totalQuestions} questions"
         binding.startButton.setOnClickListener {
             onItemClick(practiceItem)
         }

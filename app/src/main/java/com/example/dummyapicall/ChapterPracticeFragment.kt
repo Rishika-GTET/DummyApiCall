@@ -69,9 +69,9 @@ class ChapterPracticeFragment : Fragment() {
         binding.level1LabelTextView.text = data[0].levelName
         binding.level1Label.setTextColor(Color.parseColor(data[0].levelColor))
         binding.level2LabelTextView.text = data[1].levelName
-        binding.level2Label.setTextColor(Color.parseColor(data[1].levelColor))
+        binding.level2Label.setTextColor(Color.parseColor(data[0].levelColor))
         binding.level3LabelTextView.text = data[2].levelName
-        binding.level3Label.setTextColor(Color.parseColor(data[2].levelColor))
+        binding.level3Label.setTextColor(Color.parseColor(data[0].levelColor))
         binding.level1RecyclerView.adapter = level1Adapter
         binding.level2RecyclerView.adapter = level2Adapter
         binding.level3RecyclerView.adapter = level3Adapter
