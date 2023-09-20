@@ -15,5 +15,5 @@ data class Metadata(
 data class Record(
     val subjectImage: String,
     val subjectName: String,
-    val subject_id: String
+    val subjectId: String
 )

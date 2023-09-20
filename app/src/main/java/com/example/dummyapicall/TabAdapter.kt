@@ -1,6 +1,5 @@
 package com.example.dummyapicall
 
-import ChapterVideosFragment
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 

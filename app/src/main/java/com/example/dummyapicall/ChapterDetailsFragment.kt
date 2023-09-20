@@ -38,7 +38,7 @@ class ChapterDetailsFragment:Fragment() {
             findNavController().popBackStack()
         }
 
-        val adapter = requireParentFragment().fragmentManager?.let { TabAdapter(this, binding.tabLayout.tabCount) }
+        val adapter = TabAdapter(this, binding.tabLayout.tabCount)
         binding.viewPager.adapter=adapter
 
         // Fetch subjects from the API

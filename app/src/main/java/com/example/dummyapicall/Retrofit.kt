@@ -7,7 +7,7 @@ object Retrofit {
     private val baseUrl = "https://api.jsonbin.io/v3/b/"
 
     // Initialize Retrofit for subject data
-    val retrofit = Retrofit.Builder()
+    private val retrofit: Retrofit = Retrofit.Builder()
         .baseUrl(baseUrl)
         .addConverterFactory(GsonConverterFactory.create())
         .build()

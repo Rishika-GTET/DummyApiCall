@@ -1,5 +1,4 @@
 package com.example.dummyapicall
-import ChapterAdapter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -37,9 +36,11 @@ class ChapterFragment : Fragment() {
         binding.chapterSelectionButton.setOnClickListener {
             openBottomSheetDialog()
         }
+
+        getSubjectChapters("")
         getSubjectList()
+
         // Fetch subjects from the API
-        getMathematicsChaptersList()
     }
 
     private fun getSubjectList() {
@@ -61,10 +62,14 @@ class ChapterFragment : Fragment() {
             }
         })
     }
+    private fun getSubjectChapters(subjectName: String) {
+        val serviceCall = when (subjectName) {
+            getString(R.string.physics) -> retrofitService.getPhysicsSubjectDetails()
+            getString(R.string.chemistry) -> retrofitService.getChemistrySubjectDetails()
+            else -> retrofitService.getMathematicsSubjectDetails()
+        }
 
-    private fun getMathematicsChaptersList(){
-        val call = retrofitService.getMathematicsSubjectDetails()
-        call.enqueue(object : Callback<SubjectResponse> {
+        serviceCall.enqueue(object : Callback<SubjectResponse> {
             override fun onResponse(
                 call: Call<SubjectResponse>,
                 response: Response<SubjectResponse>
@@ -73,11 +78,11 @@ class ChapterFragment : Fragment() {
                     val subjectResponse = response.body()
                     val subject = subjectResponse?.record
                     val chapters = subject?.chapters ?: emptyList()
-                    println("Chapters $chapters")
+                    println(getString(R.string.chapters, chapters))
 
                     // Pass the subjects and chapters to the adapter
                     adapter = ChapterAdapter(chapters) {
-                        findNavController().navigate(ChapterFragmentDirections.actionChapterFragmentToChapterDetailsFragment(it.chapter_name))
+                        findNavController().navigate(ChapterFragmentDirections.actionChapterFragmentToChapterDetailsFragment(it.chapterName))
                     }
                     binding.recyclerView.adapter = adapter
                 } else {
@@ -91,63 +96,6 @@ class ChapterFragment : Fragment() {
         })
     }
 
-    private fun getPhysicsChaptersList(){
-        val call = retrofitService.getPhysicsSubjectDetails()
-        call.enqueue(object : Callback<SubjectResponse> {
-            override fun onResponse(
-                call: Call<SubjectResponse>,
-                response: Response<SubjectResponse>
-            ) {
-                if (response.isSuccessful) {
-                    val subjectResponse = response.body()
-                    val subject = subjectResponse?.record
-                    val chapters = subject?.chapters ?: emptyList()
-                    println("Chapters $chapters")
-
-                    // Pass the subjects and chapters to the adapter
-                    adapter = ChapterAdapter(chapters) {
-                        findNavController().navigate(ChapterFragmentDirections.actionChapterFragmentToChapterDetailsFragment(it.chapter_name))
-                    }
-                    binding.recyclerView.adapter = adapter
-                } else {
-                    // Handle the error
-                }
-            }
-
-            override fun onFailure(call: Call<SubjectResponse>, t: Throwable) {
-                t.printStackTrace()
-            }
-        })
-    }
-
-    private fun getChemistryChaptersList(){
-        val call = retrofitService.getChemistrySubjectDetails()
-        call.enqueue(object : Callback<SubjectResponse> {
-            override fun onResponse(
-                call: Call<SubjectResponse>,
-                response: Response<SubjectResponse>
-            ) {
-                if (response.isSuccessful) {
-                    val subjectResponse = response.body()
-                    val subject = subjectResponse?.record
-                    val chapters = subject?.chapters ?: emptyList()
-                    println("Chapters $chapters")
-
-                    // Pass the subjects and chapters to the adapter
-                    adapter = ChapterAdapter(chapters) {
-                        findNavController().navigate(ChapterFragmentDirections.actionChapterFragmentToChapterDetailsFragment(title = it.chapter_name))
-                    }
-                    binding.recyclerView.adapter = adapter
-                } else {
-                    // Handle the error
-                }
-            }
-
-            override fun onFailure(call: Call<SubjectResponse>, t: Throwable) {
-                t.printStackTrace()
-            }
-        })
-    }
 
     private fun openBottomSheetDialog() {
         dialogBinding = LayoutBottomSheetDialogBinding.inflate(layoutInflater)
@@ -157,13 +105,7 @@ class ChapterFragment : Fragment() {
             SubjectAdapter(subjects = subjects!!) { selectedSubject ->
                 binding.chapterTextView.text = selectedSubject.subjectName
                 binding.chapterImageView.loadUrl(selectedSubject.subjectImage)
-                if(selectedSubject.subjectName == "Physics"){
-                    getPhysicsChaptersList()
-                }else if(selectedSubject.subjectName == "Chemistry"){
-                    getChemistryChaptersList()
-                }else{
-                    getMathematicsChaptersList()
-                }
+                getSubjectChapters(selectedSubject.subjectName)
                 dialog.cancel()
             }
         dialog.show()

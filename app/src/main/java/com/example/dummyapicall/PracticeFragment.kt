@@ -1,5 +1,4 @@
 package com.example.dummyapicall
-import ChapterAdapter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -79,7 +78,7 @@ class PracticeFragmentFragment : Fragment() {
 
                     // Pass the subjects and chapters to the adapter
                     adapter = ChapterAdapter(chapters) {
-                        findNavController().navigate(ChapterFragmentDirections.actionChapterFragmentToChapterDetailsFragment(it.chapter_name))
+                        findNavController().navigate(ChapterFragmentDirections.actionChapterFragmentToChapterDetailsFragment(it.chapterName))
                     }
                     binding.recyclerView.adapter = adapter
                 } else {
@@ -108,7 +107,7 @@ class PracticeFragmentFragment : Fragment() {
 
                     // Pass the subjects and chapters to the adapter
                     adapter = ChapterAdapter(chapters) {
-                        findNavController().navigate(ChapterFragmentDirections.actionChapterFragmentToChapterDetailsFragment(it.chapter_name))
+                        findNavController().navigate(ChapterFragmentDirections.actionChapterFragmentToChapterDetailsFragment(it.chapterName))
                     }
                     binding.recyclerView.adapter = adapter
                 } else {
@@ -137,7 +136,7 @@ class PracticeFragmentFragment : Fragment() {
 
                     // Pass the subjects and chapters to the adapter
                     adapter = ChapterAdapter(chapters) {
-                        findNavController().navigate(ChapterFragmentDirections.actionChapterFragmentToChapterDetailsFragment(it.chapter_name))
+                        findNavController().navigate(ChapterFragmentDirections.actionChapterFragmentToChapterDetailsFragment(it.chapterName))
                     }
                     binding.recyclerView.adapter = adapter
                 } else {

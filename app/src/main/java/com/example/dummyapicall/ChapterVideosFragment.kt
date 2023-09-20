@@ -1,14 +1,11 @@
-
+package com.example.dummyapicall
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import com.example.dummyapicall.R
 import com.example.dummyapicall.Retrofit.retrofitService
-import com.example.dummyapicall.VideoAdapter
-import com.example.dummyapicall.VideoResponse
 import com.example.dummyapicall.databinding.FragmentChapterVideosBinding
 import retrofit2.Call
 import retrofit2.Callback

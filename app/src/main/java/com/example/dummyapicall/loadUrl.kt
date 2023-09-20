@@ -4,7 +4,6 @@ import android.widget.ImageView
 import coil.ImageLoader
 import coil.decode.SvgDecoder
 import coil.request.ImageRequest
-
 fun ImageView.loadUrl(url: String) {
 
         val imageLoader = ImageLoader.Builder(this.context)
