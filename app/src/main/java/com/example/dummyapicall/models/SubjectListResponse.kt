@@ -1,4 +1,4 @@
-package com.example.dummyapicall
+package com.example.dummyapicall.models
 
 data class SubjectListResponse(
     val metadata: Metadata,

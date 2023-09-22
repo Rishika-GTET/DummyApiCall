@@ -1,7 +1,9 @@
-package com.example.dummyapicall
+package com.example.dummyapicall.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.example.dummyapicall.views.fragments.ChapterPracticeFragment
+import com.example.dummyapicall.views.fragments.ChapterVideosFragment
 
 class TabAdapter(fragment: Fragment, private var totalTabs: Int) : FragmentStateAdapter(fragment) {
     override fun getItemCount(): Int {

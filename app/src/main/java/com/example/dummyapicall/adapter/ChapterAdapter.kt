@@ -1,4 +1,4 @@
-package com.example.dummyapicall
+package com.example.dummyapicall.adapter
 
 import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
@@ -6,7 +6,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.dummyapicall.Chapter
 import com.example.dummyapicall.databinding.ItemChapterBinding
+import com.example.dummyapicall.loadUrl
+
 class ChapterAdapter(
     chapters: List<Chapter>,
     private var onItemClicked: ((chapter: Chapter) -> Unit)

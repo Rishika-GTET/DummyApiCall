@@ -1,13 +1,14 @@
-package com.example.dummyapicall
+package com.example.dummyapicall.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.dummyapicall.models.PracticeLevelModel
 import com.example.dummyapicall.databinding.PracticeCardItemBinding
 
 class PracticeAdapter(private val practiceList: List<PracticeLevelModel>,
-    private var onItemClick:(PracticeLevelModel)->(Unit)={}) :
+                      private var onItemClick:(PracticeLevelModel)->(Unit)={}) :
     RecyclerView.Adapter<PracticeAdapter.PracticeViewHolder>() {
     private lateinit var binding: PracticeCardItemBinding
 
@@ -33,3 +34,5 @@ class PracticeAdapter(private val practiceList: List<PracticeLevelModel>,
         }
     }
 }
+
+

@@ -1,5 +1,9 @@
-package com.example.dummyapicall
+package com.example.dummyapicall.network
 
+import com.example.dummyapicall.SubjectResponse
+import com.example.dummyapicall.models.PracticeListItem
+import com.example.dummyapicall.models.SubjectListResponse
+import com.example.dummyapicall.models.VideoResponse
 import retrofit2.Call
 import retrofit2.http.GET
 

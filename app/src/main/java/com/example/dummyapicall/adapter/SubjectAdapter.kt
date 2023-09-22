@@ -1,9 +1,11 @@
-package com.example.dummyapicall
+package com.example.dummyapicall.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dummyapicall.databinding.ItemSubjectBinding
+import com.example.dummyapicall.loadUrl
+import com.example.dummyapicall.models.Record
 
 
 class SubjectAdapter(

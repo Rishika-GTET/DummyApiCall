@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/chapterFragment"
-        android:name="com.example.dummyapicall.ChapterFragment"
+        android:name="com.example.dummyapicall.views.fragments.ChapterFragment"
         android:label="fragment_chapter"
         tools:layout="@layout/fragment_chapter" >
 
@@ -19,7 +19,7 @@
     <fragment
         android:id="@+id/chapterDetailsFragment"
         tools:layout="@layout/fragment_chapter_details"
-        android:name="com.example.dummyapicall.ChapterDetailsFragment"
+        android:name="com.example.dummyapicall.views.fragments.ChapterDetailsFragment"
         android:label="ChapterDetailsFragment">
 
         <argument

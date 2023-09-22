@@ -1,4 +1,4 @@
-package com.example.dummyapicall
+package com.example.dummyapicall.models
 
 import java.io.Serializable
 
