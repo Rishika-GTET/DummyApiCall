@@ -12,10 +12,12 @@ import com.example.dummyapicall.R
 import com.example.dummyapicall.adapter.PracticeRecyclerViewAdapter
 import com.example.dummyapicall.databinding.FragmentChapterPracticeBinding
 import com.example.dummyapicall.viewmodels.ChapterPracticeViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 
+@AndroidEntryPoint
 class ChapterPracticeFragment : Fragment() {
     private lateinit var binding: FragmentChapterPracticeBinding
     private lateinit var viewModel: ChapterPracticeViewModel

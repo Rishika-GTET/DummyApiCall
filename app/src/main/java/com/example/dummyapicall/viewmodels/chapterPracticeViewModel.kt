@@ -4,17 +4,14 @@ import androidx.lifecycle.ViewModel
 import com.example.dummyapicall.models.PracticeListItem
 import com.example.dummyapicall.models.PracticeRecord
 import com.example.dummyapicall.network.ApiService
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import javax.inject.Inject
-
-class ChapterPracticeViewModel:ViewModel() {
-
-    @Inject
-    lateinit var apiService: ApiService
-
+@HiltViewModel
+class ChapterPracticeViewModel @Inject constructor(private val apiService: ApiService):ViewModel() {
     var practiceList: MutableStateFlow<List<PracticeRecord>> = MutableStateFlow(emptyList())
     init {
         getChapterPracticeList()

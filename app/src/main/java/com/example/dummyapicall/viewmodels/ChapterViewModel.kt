@@ -6,13 +6,14 @@ import com.example.dummyapicall.SubjectResponse
 import com.example.dummyapicall.models.Record
 import com.example.dummyapicall.models.SubjectListResponse
 import com.example.dummyapicall.network.ApiService
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import javax.inject.Inject
-
-class ChapterViewModel@Inject constructor(val apiService: ApiService) : ViewModel() {
+@HiltViewModel
+class ChapterViewModel @Inject constructor(private val apiService: ApiService) : ViewModel() {
 
     var chapterList: MutableStateFlow<List<Chapter>> = MutableStateFlow(emptyList())
     var subjectImage: MutableStateFlow<String> = MutableStateFlow("")
@@ -22,7 +23,6 @@ class ChapterViewModel@Inject constructor(val apiService: ApiService) : ViewMode
     init {
             getSubjectList()
     }
-
 
     private fun getSubjectList() {
         val call = apiService.getSubjectList()

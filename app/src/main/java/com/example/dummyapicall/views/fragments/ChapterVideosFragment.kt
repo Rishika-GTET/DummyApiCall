@@ -12,9 +12,10 @@ import com.example.dummyapicall.R
 import com.example.dummyapicall.adapter.VideoAdapter
 import com.example.dummyapicall.databinding.FragmentChapterVideosBinding
 import com.example.dummyapicall.viewmodels.ChapterVideosViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-
+@AndroidEntryPoint
 class ChapterVideosFragment : Fragment() {
     private lateinit var binding: FragmentChapterVideosBinding
     lateinit var adapter: VideoAdapter

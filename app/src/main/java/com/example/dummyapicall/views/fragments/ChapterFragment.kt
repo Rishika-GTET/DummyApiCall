@@ -15,17 +15,21 @@ import com.example.dummyapicall.adapter.SubjectAdapter
 import com.example.dummyapicall.databinding.FragmentChapterBinding
 import com.example.dummyapicall.databinding.LayoutBottomSheetDialogBinding
 import com.example.dummyapicall.loadUrl
+import com.example.dummyapicall.network.ApiService
 import com.example.dummyapicall.viewmodels.ChapterViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-
+@AndroidEntryPoint
 class ChapterFragment : Fragment() {
     private lateinit var binding: FragmentChapterBinding
     private lateinit var dialogBinding: LayoutBottomSheetDialogBinding
     private lateinit var viewModel: ChapterViewModel
     lateinit var adapter: ChapterAdapter
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

@@ -13,8 +13,10 @@ import com.example.dummyapicall.adapter.TabAdapter
 import com.example.dummyapicall.databinding.FragmentChapterDetailsBinding
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import dagger.hilt.android.AndroidEntryPoint
 
 
+@AndroidEntryPoint
 class ChapterDetailsFragment:Fragment() {
     private lateinit var binding: FragmentChapterDetailsBinding
     private val args: ChapterDetailsFragmentArgs by navArgs()
